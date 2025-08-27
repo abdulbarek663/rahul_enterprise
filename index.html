@@ -229,31 +229,31 @@
             document.body.appendChild(welcomePopup);
         }
         
-        function playPopupSound() {
-            try {
-                const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+        // function playPopupSound() {
+        //     try {
+        //         const audioContext = new (window.AudioContext || window.webkitAudioContext)();
                 
-                // Create a gentle notification sound
-                const oscillator = audioContext.createOscillator();
-                const gainNode = audioContext.createGain();
+        //         // Create a gentle notification sound
+        //         const oscillator = audioContext.createOscillator();
+        //         const gainNode = audioContext.createGain();
                 
-                oscillator.connect(gainNode);
-                gainNode.connect(audioContext.destination);
+        //         oscillator.connect(gainNode);
+        //         gainNode.connect(audioContext.destination);
                 
-                oscillator.frequency.setValueAtTime(800, audioContext.currentTime);
-                oscillator.frequency.linearRampToValueAtTime(1000, audioContext.currentTime + 0.1);
-                oscillator.type = 'sine';
+        //         oscillator.frequency.setValueAtTime(800, audioContext.currentTime);
+        //         oscillator.frequency.linearRampToValueAtTime(1000, audioContext.currentTime + 0.1);
+        //         oscillator.type = 'sine';
                 
-                gainNode.gain.setValueAtTime(0, audioContext.currentTime);
-                gainNode.gain.linearRampToValueAtTime(0.08, audioContext.currentTime + 0.05);
-                gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.3);
+        //         gainNode.gain.setValueAtTime(0, audioContext.currentTime);
+        //         gainNode.gain.linearRampToValueAtTime(0.08, audioContext.currentTime + 0.05);
+        //         gainNode.gain.exponentialRampToValueAtTime(0.01, audioContext.currentTime + 0.3);
                 
-                oscillator.start(audioContext.currentTime);
-                oscillator.stop(audioContext.currentTime + 0.3);
-            } catch (error) {
-                console.log('Audio not supported');
-            }
-        }
+        //         oscillator.start(audioContext.currentTime);
+        //         oscillator.stop(audioContext.currentTime + 0.3);
+        //     } catch (error) {
+        //         console.log('Audio not supported');
+        //     }
+        // }
         
         function closeWelcome() {
             // Play a soft close sound
